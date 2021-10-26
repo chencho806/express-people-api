@@ -50,8 +50,9 @@ app.get('/people', async (req, res) => {
 //Delete Route
 app.delete('/people/:id', async (req, res) => {
     try {
-        res.json(await People.findByAndDelete(req.params.id))
+        res.json(await People.findByIdAndDelete(req.params.id))
     } catch (error) {
+        console.log(error)
         res.status(400).json(error);
     }
 });
